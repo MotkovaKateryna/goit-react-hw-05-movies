@@ -27,7 +27,7 @@ const MovieDetails = () => {
     
 return (
     <>
-    <h1>{movie?.title}</h1>
+    <h1>{movie?.name}</h1>
     <p>Movie details</p>
     </>
 )
