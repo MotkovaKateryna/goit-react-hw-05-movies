@@ -3,12 +3,12 @@ import MoviesList from "shared/MoviesList/MoviesList";
 
 import { getAllMovies } from "shared/api"; 
 
-import styles from "./trend-movies.module.scss";
+// import styles from "./trend-movies.module.scss";
 
 const TrendMovies = () => {
     const [items,setItems] = useState([]);
-    const [loading,setLoading] = useState(false);
-    const [error,setError] = useState(null);
+    // const [loading,setLoading] = useState(false);
+    // const [error,setError] = useState(null);
 
 
     useEffect(() => {
