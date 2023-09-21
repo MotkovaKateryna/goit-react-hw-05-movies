@@ -14,15 +14,15 @@ const TrendMovies = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                setLoading(true);
+                // setLoading(true);
                 const data = await getAllMovies();
                 setItems(data.results);
             }
             catch(error){
-                setError(error.message);
+                // setError(error.message);
             }
             finally{
-                setLoading(false);
+                // setLoading(false);
             }
         }
         fetchMovies();    
