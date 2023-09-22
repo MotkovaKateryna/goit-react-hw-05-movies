@@ -1,17 +1,11 @@
-// кастомний хук
-// треба подумати які аргументи треба передати у форму, щоб вона зробила те що треба.  чим відрізняються форми/логіки ?  
-// різні initial State і різні функції onSubmit
-//
-//
-
 import { useState } from "react";
 
 
-const useForm = ({initialState,onSubmit}) => {// пишемо аргументи від яких залежить форма, отримуємо initialState
+const useForm = ({initialState,onSubmit}) => {
 
-    const [state, setState] = useState({...initialState}) // створюю state 
+    const [state, setState] = useState({...initialState}) 
 
-  const handleChange = ({target}) => { // створюю функцію для роботи
+  const handleChange = ({target}) => {
     const {name,value} = target;
     setState(prevState => 
       {
@@ -25,7 +19,7 @@ const useForm = ({initialState,onSubmit}) => {// пишемо аргументи
     setState({...initialState});
   }
 
-  return {state, setState, handleChange,handleSubmit} // все це  треба повернути 
+  return {state, setState, handleChange,handleSubmit} 
 }
 
 export default useForm;

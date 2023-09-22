@@ -65,8 +65,6 @@ const loadMore = useCallback(() => {
         </>
        
     )
-
-
 }
 
 export default MoviesSearch; 
