@@ -1,6 +1,9 @@
+import MoviesSearch from "modules/MoviesSearch/MoviesSearch";
+
+
 
 const MoviesPage = () =>{
-    return <h1>Movies Page</h1>
+    return  <MoviesSearch/>
     }
     
     export default MoviesPage;

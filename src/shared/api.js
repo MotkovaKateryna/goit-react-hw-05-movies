@@ -17,6 +17,20 @@ export const getAllMovies = async () => {
 export const getMovieById = async (id) => {
   const {data} = await instance.get(`/movie/${id}`);
   return data; 
-
 }
+
+
+export const searchMovies = async (search, page) => { 
+  const { data } = await instance.get("/search/movie", {
+    params: {
+      query:search,
+      page,
+      include_adult: "false",
+      language: 'en-US',
+    },
+  });
+  return data;
+
+};
+
 
