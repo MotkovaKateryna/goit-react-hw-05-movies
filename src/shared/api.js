@@ -40,3 +40,7 @@ export const getCastMovieById = async (id) => {
   return data; 
 }
 
+export const getReviewMovieById = async (id) => {
+  const {data} = await instance.get(`/movie/${id}/reviews`);
+  return data; 
+}
