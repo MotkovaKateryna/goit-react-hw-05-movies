@@ -34,3 +34,9 @@ export const searchMovies = async (search, page) => {
 };
 
 
+
+export const getCastMovieById = async (id) => {
+  const {data} = await instance.get(`/movie/${id}/credits`);
+  return data; 
+}
+

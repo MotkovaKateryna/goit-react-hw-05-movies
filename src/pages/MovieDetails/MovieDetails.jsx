@@ -68,9 +68,6 @@ const MovieDetails = () => {
                 <li className={styles.list}>Cast</li>
                 <li className={styles.list}>Rewievs</li>
             </ul>
-   
-
-
         </div>
 
 
