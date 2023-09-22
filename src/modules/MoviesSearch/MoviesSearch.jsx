@@ -5,8 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import styles from "./movies-search.module.scss"
 
 import MoviesSearchForm from "./MoviesSearchForm/MoviesSearchForm";
-import MovieDetails from "pages/MovieDetails/MovieDetails";
-import MoviesList from "shared/MoviesList/MoviesList";
+// import MovieDetails from "pages/MovieDetails/MovieDetails";
+// import MoviesList from "shared/MoviesList/MoviesList";
 
 import { searchMovies } from "shared/api";
 
