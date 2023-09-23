@@ -25,7 +25,12 @@ const TrendMovies = () => {
    
 },[])
 
-return <MoviesList items={items}/>
+return (
+<>
+<MoviesList items={items}/>
+{error && <h2>{error}</h2>}
+</>
+)
 
 
 
