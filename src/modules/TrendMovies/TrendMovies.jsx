@@ -7,23 +7,19 @@ import { getAllMovies } from "shared/api";
 
 const TrendMovies = () => {
     const [items,setItems] = useState([]);
-    // const [loading,setLoading] = useState(false);
-    // const [error,setError] = useState(null);
+    const [error,setError] = useState(null);
 
 
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                // setLoading(true);
                 const data = await getAllMovies();
                 setItems(data.results);
             }
             catch(error){
-                // setError(error.message);
+                setError(error.message);
             }
-            finally{
-                // setLoading(false);
-            }
+            
         }
         fetchMovies();    
    

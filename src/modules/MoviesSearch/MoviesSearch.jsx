@@ -2,11 +2,12 @@ import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 
 
+import Loader from "shared/Loader/Loader";
+import MoviesList from "shared/MoviesList/MoviesList";
+
 import styles from "./movies-search.module.scss"
 
 import MoviesSearchForm from "./MoviesSearchForm/MoviesSearchForm";
-// import MovieDetails from "pages/MovieDetails/MovieDetails";
-// import MoviesList from "shared/MoviesList/MoviesList";
 
 import { searchMovies } from "shared/api";
 
@@ -28,7 +29,6 @@ const MoviesSearch = () => {
                     setLoading(true);
                     const data = await searchMovies(search,page);
                     setItems(prevItems => [...prevItems,...data.results])
-                    console.log(...data.results);
                 }
                 catch(error){
                     setError(error.message);
@@ -47,21 +47,15 @@ const MoviesSearch = () => {
         setItems([]);
         
        },[setSearchParams])
- 
-    
-
-const loadMore = useCallback(() => {
-    setSearchParams({search,page: Number(page) + 1});
-   },[search,page,setSearchParams])
      
 
     return(
         <>
        <MoviesSearchForm onSubmit = {onSearchMovies}/>
+       <MoviesList items={items} />
        {(!items.length && search) && <p>Movies not found</p> }
        {error && <p className={styles.errorMessage} >{error}</p> }
-       {loading && <p>...Loading</p> }
-       {Boolean(items.length) && <button onClick={loadMore}>Load more</button> }
+       {loading && <Loader /> }
         </>
        
     )

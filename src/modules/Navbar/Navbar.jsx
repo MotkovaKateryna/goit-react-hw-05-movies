@@ -10,6 +10,8 @@ const elements = items.map(({id,text,link}) => <li  key={id}>
 </li> );
 
 return(
+
+    
     <ul className={styles.menu}>
         {elements}
     </ul>

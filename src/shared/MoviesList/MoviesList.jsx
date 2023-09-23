@@ -12,7 +12,7 @@ const MoviesList =({items}) => {
     const elements = items.map(({id, title})=> 
 
  
-    <Link className={styles.link} key ={id} to={`/trending/movies/${id}`} state={{from : location}}><li className={styles.item}>
+    <Link className={styles.link} key ={id} to={`/movies/${id}`} state={{from : location}}><li className={styles.item}>
                                                                                                               <p>{title}</p>
                                                 </li></Link> );
 

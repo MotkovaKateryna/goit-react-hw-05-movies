@@ -1,25 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Suspense,lazy } from "react";
 
-import Navbar from "./modules/Navbar/Navbar";
-import HomePage from "pages/HomePage/HomePage";
-import MovieDetails from "pages/MovieDetails/MovieDetails";
-import MoviesPage from "pages/MoviesPage/MoviesPage";
-import NotFoundPage from "pages/NotFoundPage/NotFoundPage";
+import UserRoutes from "UserRoutes";
+import Loader from 'shared/Loader/Loader';
+
+const Navbar = lazy(() => import ('./modules/Navbar/Navbar'));
+
+
 
 
 export const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/goit-react-hw-05-movies">
       <Navbar/>
-<Routes>
-  <Route path="/" element={<HomePage/>}/>
-  <Route path="/trending/movies/:id" element={<MovieDetails/>}/>
-  <Route path="/movies" element={<MoviesPage/>}/>
-  <Route path="*" element={<NotFoundPage/>}/>
-</Routes>
-
+      <Suspense fallback={<Loader/>}>
+     <UserRoutes/>
+    </Suspense>
     </BrowserRouter>
   );
 };
-
-

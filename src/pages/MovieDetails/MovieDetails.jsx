@@ -1,6 +1,6 @@
 
 import {useState,useEffect} from "react";
-import { useParams } from "react-router-dom";
+import { Outlet, Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 
 import {getMovieById} from "../../shared/api";
 
@@ -9,6 +9,10 @@ import styles from "./movie-details.module.scss"
 const MovieDetails = () => {
     const [movie, setMovie] = useState();
     const {id} = useParams();
+
+    const navigate = useNavigate();
+    const location = useLocation();
+     const from = location.state?.from || '/';
     
 
 
@@ -49,7 +53,7 @@ const MovieDetails = () => {
       }
 
       return (<div className={styles.container}>
-  
+        <button onClick={() => navigate(from)} className={styles.button}> Go back</button>
         <div className={styles.flex}>
           <div><img src={generatePosterImg(poster_path)} width='250' height='350' alt={title} className={styles.image}/></div>
           <div>
@@ -62,23 +66,16 @@ const MovieDetails = () => {
           </div>
         </div>
 
-        <div>
             <h3 className={styles.add}>Additional information</h3>
             <ul className={styles.info}>
-                <li className={styles.list}>Cast</li>
-                <li className={styles.list}>Rewievs</li>
+            <Link to='cast' state={{from}} className={styles.link}><li className={styles.list}>Cast</li></Link >
+            <Link to='reviews' state={{from}} className={styles.link}><li className={styles.list}>Reviews</li></Link >
             </ul>
-        </div>
-
-
-        
+            <Outlet/>
+            
         </div>
     )
     }
-    
-
-
-}
-
+    }
 
 export default MovieDetails;

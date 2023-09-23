@@ -11,12 +11,17 @@ const MoviesSearchForm = ({onSubmit}) => {
 const {state,handleChange,handleSubmit} = useForm({initialState, onSubmit}); 
     const {search} = state;
        return(
-             <form onSubmit={handleSubmit} className={styles.form} action="">
+
+
+    <div className={styles.searchForm}>
+     <form onSubmit={handleSubmit} className={styles.form} action="">
                 <div>
                      <label htmlFor="">Search movies  </label>
-                    <input value={search} onChange ={handleChange} name="search" placeholder="Search movies" required /> 
+                    <input value={search} onChange ={handleChange} className={styles.searchInput} name="search" placeholder="Search movies" required /> 
                  </div>
-             </form>
+             </form>   
+    </div>
+             
          )
 }
 
